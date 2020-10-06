@@ -62,11 +62,11 @@ if defined?(ActiveRecord::Base)
 
             if ::ActiveRecord::VERSION::STRING >= "4.1"
               define_method("#{attr}_changed?") do |options = {}|
-                attribute_changed?(attr, options)
+                attribute_changed?(attr, **options)
               end
             else
               define_method("#{attr}_changed?") do
-                  attribute_changed?(attr)
+                attribute_changed?(attr)
               end
             end
 
